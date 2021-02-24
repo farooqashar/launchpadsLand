@@ -16,7 +16,7 @@ export default function collegeMain() {
 
   const [allData, setAllData] = useState({});
   const [data, setData] = useState([]);
-  const [collegeURL, setCollegeURL] = useState("http://universities.hipolabs.com/search?country=United%20States");
+  const [collegeURL, setCollegeURL] = useState("http://universities.hipolabs.com/search?name=boston");
   const [selectedData, setSelectedData] = useState([]);
   const [collegeSelected, setCollegeSelected] = useState(null);
 
