@@ -10,12 +10,12 @@ import Typography from '@material-ui/core/Typography';
 import styles from './app.module.css';
 
 
-export default function NumbersSelected(props) {
+export default function CollegeSelected(props) {
 
     return (
         <div>
             <Head>
-                <title>Selected Number Info!</title>
+                <title>Selected College Info!</title>
             </Head>
 
             <Card variant="outlined">
@@ -26,7 +26,7 @@ export default function NumbersSelected(props) {
                   </Typography>
 
                   <Typography className = {styles.cardMain} variant="h5" component="h2" color="blue" gutterBottom>
-                      <center>You will find a random fact about the number <i>{props.number}</i> below!</center>        
+                      <center>You will find info about <i>{props.collegeSelected}</i> below!</center>        
                   </Typography>
 
               </CardContent>
@@ -45,9 +45,16 @@ export default function NumbersSelected(props) {
             <Card variant="outlined">
               <CardContent>
 
-              <Typography className = {styles.facts} variant="h2" component="h2" color="blue" gutterBottom>
-                    <center>{props.val}</center>        
+              <Typography className = {styles.facts} variant="h5" component="h2" color="primary" gutterBottom>
+                    <center><b>Country:</b> {props.selectedData.country} [{props.selectedData.alpha_two_code}]</center>   
+                    <center>
+                      <Link href={props.selectedData.web_pages[0]}>
+                        <Button color = "primary"><b>Go to {props.selectedData.name}'s Website</b></Button>
+                      </Link>     
+                    </center>
+
               </Typography>
+              
 
               </CardContent>
 

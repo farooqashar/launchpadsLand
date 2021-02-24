@@ -19,7 +19,7 @@ export default function App() {
     <div>
 
       <Head>
-        <title>Numbers Land</title>
+        <title>College Land</title>
       </Head>
 
       <main>
@@ -31,27 +31,27 @@ export default function App() {
 
           avatar={
             <Avatar className = {styles.cardLight} aria-label="">
-              NL
+              CL
             </Avatar>
           } 
 
           action={
-            <IconButton aria-label="Numbers Land">
+            <IconButton aria-label="College Land">
             </IconButton>
           }
-          title="Numbers Land"
-          subheader="2021"
+          title="College Land"
+          subheader="CL"
         ></CardHeader>
 
         <CardActionArea>
           <CardContent>
 
             <Typography className = {styles.cardLarge} variant="h1" component="h2" color="blue" gutterBottom>
-                <center>Welcome to Numbers Land</center>        
+                <center>Welcome to College Land</center>        
             </Typography>
 
             <Typography className = {styles.cardMain} variant="h4" component="h2" color="blue" gutterBottom>
-                <center>This is a simple interface for finding more information about random integers via Numbers Land!</center>        
+                <center>This is a simple interface for finding links to some colleges in various locations!</center>        
             </Typography>
 
           </CardContent>
@@ -60,8 +60,8 @@ export default function App() {
 
         <CardActions style={{justifyContent: 'center'}}>
 
-          <Link href={{ pathname: '/numbersMain'}}>
-            <Button variant="contained" color="primary">Numbers Land</Button>
+          <Link href={{ pathname: '/collegeMain'}}>
+            <Button variant="contained" color="primary">College Land</Button>
           </Link>
 
       </CardActions>
