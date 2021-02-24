@@ -12,7 +12,7 @@ import styles from './app.module.css';
 
 export default function CollegeSelected(props) {
     
-    {(props.selectedData ? props.selectedData : {country:"null",alpha_two_code:"US"})}
+    {(props.selectedData ? props.selectedData : {country:"null",alpha_two_code:"US",web_pages:["null"]})}
 
     return (
         <div>
