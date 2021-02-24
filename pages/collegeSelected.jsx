@@ -46,7 +46,8 @@ export default function CollegeSelected(props) {
               <CardContent>
 
               <Typography className = {styles.facts} variant="h5" component="h2" color="primary" gutterBottom>
-                    <center><b>Country:</b> {props.selectedData.country} [{props.selectedData.alpha_two_code}]</center>   
+                    {/* {(props.selectedData ? props.selectedData : {country:"null",alpha_two_code:"US"})} */}
+                    {/* <center><b>Country:</b> {props.selectedData.country} [{props.selectedData.alpha_two_code}]</center>    */}
                     <center>
                       <Link href={props.selectedData.web_pages[0]}>
                         <Button color = "primary"><b>Go to {props.selectedData.name}'s Website</b></Button>
