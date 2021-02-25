@@ -16,7 +16,15 @@ export default function OrganizationMain() {
 
   const [allData, setAllData] = useState([]);
   const [orgURL, setOrgURL] = useState("https://api.spacexdata.com/v4/launchpads");
-  const [selectedData, setSelectedData] = useState([]);
+  const [details, setDetails] = useState([]);
+  const [name,setName] = useState();
+  const [locality,setLocality] = useState();
+  const [longitude,setLongitude] = useState();
+  const [time,setTime] = useState();
+  const [status,setStatus] = useState();
+  const [id,setID] = useState();
+
+
   const [orgSelected, setOrgSelected] = useState(null);
 
   const orgAxios = async () => {
@@ -30,14 +38,20 @@ export default function OrganizationMain() {
   }, [orgURL]);
 
   function onclick(value){
-      setSelectedData(value.details);
+      setDetails(value.details);
+      setName(value.name);
+      setLocality(value.locality);
+      setLongitude(value.longitude);
+      setTime(value.timezone);
+      setStatus(value.status);
+      setID(value.id);
       setOrgSelected(value.full_name);
   }
 
-    if (selectedData.length != 0) {
+    if (details.length != 0) {
         return (
             <Link target="_blank" href="/organizationSelected">
-              <OrganizationSelected selectedData = {selectedData} orgSelected = {orgSelected}></OrganizationSelected>
+              <OrganizationSelected longitude = {longitude} id = {id} status = {status}  time = {time} locality = {locality} name = {name} selectedData = {details} orgSelected = {orgSelected}></OrganizationSelected>
             </Link>
         )
     }

@@ -22,7 +22,13 @@ import MuiAlert from '@material-ui/lab/Alert';
 
 export default function OrganizationSelected(props) {
     
-  const launchPadData = props.selectedData;
+  const details = props.selectedData;
+  const name = props.name;
+  const locality = props.locality;
+  const longitude = props.longitude;
+  const time = props.time;
+  const status = props.status;
+  const id = props.id;
 
   const [expanded, setExpanded] = useState(false);
   const [favorites, setFavorites] = useState([]);
@@ -93,29 +99,29 @@ export default function OrganizationSelected(props) {
                   </IconButton>
                   </Link>
                 }
-                title= {props.orgSelected}
+                title= {name}
                 subheader = {props.orgSelected}
               />
 
               <CardMedia
-              title = {props.orgSelected}
+              title = {name}
               />
 
               <CardContent>
               <Typography className = {styles.cardLight} variant="body2" color="textSecondary" component="p">
-                {launchPadData}
+                {details}
               </Typography>
               </CardContent>
 
               <CardActions disableSpacing>
 
-              <IconButton aria-label="Favorites" onClick = {() => handleFavorites(props.selectedData.name)}>
+              <IconButton aria-label="Favorites" onClick = {() => handleFavorites(name)}>
                 <FavoriteIcon />
               </IconButton>
 
               <Snackbar open={open} autoHideDuration={1500} onClose={handleFavoritesClose}>
                 <MuiAlert elevation={6} variant="filled">
-                    {props.orgSelected} has been added to Favorites!
+                    {name} has been added to Favorites!
                 </MuiAlert>
               </Snackbar>
 
@@ -139,25 +145,25 @@ export default function OrganizationSelected(props) {
 
               <CardContent>
                 
-                {/* <Typography paragraph>
-                  Locality: {launchPadData.locality}
+                <Typography paragraph>
+                  Locality: {locality}
                 </Typography>
 
                 <Typography paragraph>
-                  Longitude : {launchPadData.longitude}
+                  Longitude : {longitude}
                 </Typography>
 
                 <Typography paragraph>
-                  Time Zone : {launchPadData.timezone}
+                  Time Zone : {time}
                 </Typography>
 
                 <Typography paragraph>
-                  Status : {launchPadData.status}
+                  Status : {status}
                 </Typography>
 
                 <Typography paragraph>
-                  ID : {launchPadData.id}
-                </Typography> */}
+                  ID : {id}
+                </Typography> 
 
               </CardContent>
               </Collapse>
