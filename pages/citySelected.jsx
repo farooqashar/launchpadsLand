@@ -12,7 +12,7 @@ import styles from './app.module.css';
 
 export default function CitySelected(props) {
     
-    // {(props.selectedData ? props.selectedData : {country:"null",alpha_two_code:"US",web_pages:["google.com"]})}
+    {(props.selectedData ? props.selectedData : {score_out_of_10:"null"})}
 
     return (
         <div>
