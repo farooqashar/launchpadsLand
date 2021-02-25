@@ -12,7 +12,7 @@ import styles from './app.module.css';
 
 export default function CollegeSelected(props) {
     
-    {(props.selectedData ? props.selectedData : {country:"null",alpha_two_code:"US",web_pages:["null"]})}
+    {(props.selectedData ? props.selectedData : {country:"null",alpha_two_code:"US",web_pages:["google.com"]})}
 
     return (
         <div>
@@ -48,13 +48,13 @@ export default function CollegeSelected(props) {
               <CardContent>
 
               <Typography className = {styles.facts} variant="h5" component="h2" color="primary" gutterBottom>
-                    {/* {(props.selectedData ? props.selectedData : {country:"null",alpha_two_code:"US"})} */}
                     {/* <center><b>Country:</b> {props.selectedData.country} [{props.selectedData.alpha_two_code}]</center>    */}
-                    <center>
+                    
+                    {/* <center>
                       <Link href={props.selectedData.web_pages[0]}>
                         <Button color = "primary"><b>Go to {props.selectedData.name}'s Website</b></Button>
                       </Link>     
-                    </center>
+                    </center> */}
 
               </Typography>
               
