@@ -19,7 +19,7 @@ export default function App() {
     <div>
 
       <Head>
-        <title>City Land</title>
+        <title>Launchpads Land</title>
       </Head>
 
       <main>
@@ -31,27 +31,27 @@ export default function App() {
 
           avatar={
             <Avatar className = {styles.cardLight} aria-label="">
-              CL
+              LL
             </Avatar>
           } 
 
           action={
-            <IconButton aria-label="City Land">
+            <IconButton aria-label="Launchpads Land">
             </IconButton>
           }
-          title="City Land"
-          subheader="CL"
+          title="Launchpads Land"
+          subheader="LL"
         ></CardHeader>
 
         <CardActionArea>
           <CardContent>
 
             <Typography className = {styles.cardLarge} variant="h1" component="h2" color="blue" gutterBottom>
-                <center>Welcome to City Land</center>        
+                <center>Welcome to Launchpads Land</center>        
             </Typography>
 
             <Typography className = {styles.cardMain} variant="h4" component="h2" color="blue" gutterBottom>
-                <center>This is a simple interface for finding basic life information about San Francisco!</center>        
+                <center>This is a simple interface for finding basic information about SpaceX Launchpads!</center>        
             </Typography>
 
           </CardContent>
@@ -60,8 +60,8 @@ export default function App() {
 
         <CardActions style={{justifyContent: 'center'}}>
 
-          <Link href={{ pathname: '/cityMain'}}>
-            <Button variant="contained" color="primary">City Land</Button>
+          <Link href={{ pathname: '/organizationMain'}}>
+            <Button variant="contained" color="primary">Launchpads Land</Button>
           </Link>
 
       </CardActions>
