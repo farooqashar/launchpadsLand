@@ -39,7 +39,7 @@ export default function collegeMain() {
   }, [cityURL]);
 
   function onclick(value){
-      setSelectedData(value.score_out_of_10);
+      setSelectedData(value.score_out_of_10.toString());
       setCitySelected(value.name);
   }
 
