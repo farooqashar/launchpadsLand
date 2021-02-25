@@ -19,7 +19,7 @@ export default function App() {
     <div>
 
       <Head>
-        <title>College Land</title>
+        <title>City Land</title>
       </Head>
 
       <main>
@@ -36,10 +36,10 @@ export default function App() {
           } 
 
           action={
-            <IconButton aria-label="College Land">
+            <IconButton aria-label="City Land">
             </IconButton>
           }
-          title="College Land"
+          title="City Land"
           subheader="CL"
         ></CardHeader>
 
@@ -47,11 +47,11 @@ export default function App() {
           <CardContent>
 
             <Typography className = {styles.cardLarge} variant="h1" component="h2" color="blue" gutterBottom>
-                <center>Welcome to College Land</center>        
+                <center>Welcome to City Land</center>        
             </Typography>
 
             <Typography className = {styles.cardMain} variant="h4" component="h2" color="blue" gutterBottom>
-                <center>This is a simple interface for finding links to some colleges in various locations!</center>        
+                <center>This is a simple interface for finding basic life information about San Francisco!</center>        
             </Typography>
 
           </CardContent>
@@ -60,8 +60,8 @@ export default function App() {
 
         <CardActions style={{justifyContent: 'center'}}>
 
-          <Link href={{ pathname: '/collegeMain'}}>
-            <Button variant="contained" color="primary">College Land</Button>
+          <Link href={{ pathname: '/cityMain'}}>
+            <Button variant="contained" color="primary">City Land</Button>
           </Link>
 
       </CardActions>

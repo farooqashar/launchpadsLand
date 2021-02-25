@@ -10,14 +10,14 @@ import Typography from '@material-ui/core/Typography';
 import styles from './app.module.css';
 
 
-export default function CollegeSelected(props) {
+export default function CitySelected(props) {
     
-    {(props.selectedData ? props.selectedData : {country:"null",alpha_two_code:"US",web_pages:["google.com"]})}
+    // {(props.selectedData ? props.selectedData : {country:"null",alpha_two_code:"US",web_pages:["google.com"]})}
 
     return (
         <div>
             <Head>
-                <title>Selected College Info!</title>
+                <title>Selected Category Info!</title>
             </Head>
 
             <Card variant="outlined">
@@ -28,7 +28,7 @@ export default function CollegeSelected(props) {
                   </Typography>
 
                   <Typography className = {styles.cardMain} variant="h5" component="h2" color="blue" gutterBottom>
-                      <center>You will find info about <i>{props.collegeSelected}</i> below!</center>        
+                      <center>You will find info about <i>{props.citySelected}</i> below!</center>        
                   </Typography>
 
               </CardContent>
@@ -49,12 +49,9 @@ export default function CollegeSelected(props) {
 
               <Typography className = {styles.facts} variant="h5" component="h2" color="primary" gutterBottom>
                 
-                  <center><b>Country:</b> {props.selectedData.country} [{props.selectedData.alpha_two_code}]</center>   
+                  <center><b>Overall Score Out of 10: </b> {props.selectedData.score_out_of_10}</center>   
                     
                    <center>
-                      <Link href={props.selectedData.web_pages[0]}>
-                        <Button color = "primary"><b>Go to {props.selectedData.name}'s Website</b></Button>
-                      </Link>     
                     </center> 
 
               </Typography>
