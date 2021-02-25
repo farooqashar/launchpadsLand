@@ -12,7 +12,10 @@ import styles from './app.module.css';
 
 export default function CitySelected(props) {
     
+
     {(props.selectedData ? props.selectedData : {score_out_of_10:"null"})}
+
+    const score = props.selectedData.score_out_of_10;
 
     return (
         <div>
@@ -49,7 +52,7 @@ export default function CitySelected(props) {
 
               <Typography className = {styles.facts} variant="h5" component="h2" color="primary" gutterBottom>
                 
-                  <center><b>Overall Score Out of 10: </b> {props.selectedData.score_out_of_10}</center>   
+                  <center><b>Overall Score Out of 10: </b> {score}</center>   
                     
                    <center>
                     </center> 
