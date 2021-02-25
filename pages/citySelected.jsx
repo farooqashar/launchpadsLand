@@ -52,7 +52,7 @@ export default function CitySelected(props) {
 
               <Typography className = {styles.facts} variant="h5" component="h2" color="primary" gutterBottom>
                 
-                  <center><b>Overall Score Out of 10: </b></center>   
+                  <center><b>Overall Score Out of 10: </b>{props.selectedData}</center>   
                     
                    <center>
                     </center> 
