@@ -22,6 +22,8 @@ import MuiAlert from '@material-ui/lab/Alert';
 
 export default function OrganizationSelected(props) {
     
+  const launchPadData = props.selectedData;
+
   const [expanded, setExpanded] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [open, setOpen] = useState(false);
@@ -72,7 +74,7 @@ export default function OrganizationSelected(props) {
 
           </CardActions>
           </Card>
-          
+
             <Card >
 
               <CardHeader
@@ -91,17 +93,17 @@ export default function OrganizationSelected(props) {
                   </IconButton>
                   </Link>
                 }
-                title= {props.selectedData.name}
+                title= {launchPadData.name}
                 subheader = {props.orgSelected}
               />
 
               <CardMedia
-              title = {props.selectedData.name}
+              title = {launchPadData.name}
               />
 
               <CardContent>
               <Typography className = {styles.cardLight} variant="body2" color="textSecondary" component="p">
-                {props.selectedData.details}
+                {launchPadData.details}
               </Typography>
               </CardContent>
 
@@ -113,7 +115,7 @@ export default function OrganizationSelected(props) {
 
               <Snackbar open={open} autoHideDuration={1500} onClose={handleFavoritesClose}>
                 <MuiAlert elevation={6} variant="filled">
-                    {props.selectedData.name} has been added to Favorites!
+                    {launchPadData.name} has been added to Favorites!
                 </MuiAlert>
               </Snackbar>
 
@@ -138,23 +140,23 @@ export default function OrganizationSelected(props) {
               <CardContent>
                 
                 <Typography paragraph>
-                  Locality: {props.selectedData.locality}
+                  Locality: {launchPadData.locality}
                 </Typography>
 
                 <Typography paragraph>
-                  Longitude : {props.selectedData.longitude}
+                  Longitude : {launchPadData.longitude}
                 </Typography>
 
                 <Typography paragraph>
-                  Time Zone : {props.selectedData.timezone}
+                  Time Zone : {launchPadData.timezone}
                 </Typography>
 
                 <Typography paragraph>
-                  Status : {props.selectedData.status}
+                  Status : {launchPadData.status}
                 </Typography>
 
                 <Typography paragraph>
-                  ID : {props.selectedData.id}
+                  ID : {launchPadData.id}
                 </Typography>
 
               </CardContent>
