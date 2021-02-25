@@ -30,7 +30,7 @@ export default function OrganizationMain() {
   }, [orgURL]);
 
   function onclick(value){
-      setSelectedData(value);
+      setSelectedData(value.details);
       setOrgSelected(value.full_name);
   }
 

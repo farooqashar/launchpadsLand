@@ -93,17 +93,17 @@ export default function OrganizationSelected(props) {
                   </IconButton>
                   </Link>
                 }
-                title= {launchPadData.name}
+                title= {props.orgSelected}
                 subheader = {props.orgSelected}
               />
 
               <CardMedia
-              title = {launchPadData.name}
+              title = {props.orgSelected}
               />
 
               <CardContent>
               <Typography className = {styles.cardLight} variant="body2" color="textSecondary" component="p">
-                {launchPadData.details}
+                {launchPadData}
               </Typography>
               </CardContent>
 
@@ -115,7 +115,7 @@ export default function OrganizationSelected(props) {
 
               <Snackbar open={open} autoHideDuration={1500} onClose={handleFavoritesClose}>
                 <MuiAlert elevation={6} variant="filled">
-                    {launchPadData.name} has been added to Favorites!
+                    {props.orgSelected} has been added to Favorites!
                 </MuiAlert>
               </Snackbar>
 
@@ -139,7 +139,7 @@ export default function OrganizationSelected(props) {
 
               <CardContent>
                 
-                <Typography paragraph>
+                {/* <Typography paragraph>
                   Locality: {launchPadData.locality}
                 </Typography>
 
@@ -157,7 +157,7 @@ export default function OrganizationSelected(props) {
 
                 <Typography paragraph>
                   ID : {launchPadData.id}
-                </Typography>
+                </Typography> */}
 
               </CardContent>
               </Collapse>
