@@ -1,21 +1,29 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Card from '@material-ui/core/Card';
 import axios from "axios";
 import Typography from '@material-ui/core/Typography';
 import Head from 'next/head';
 import CardContent from '@material-ui/core/CardContent';
+import { makeStyles } from '@material-ui/core/styles';
 
-
+const useStyles = makeStyles({
+  root: {
+    color: "#0000FF",
+  },
+});
 
 const AllLaunchpads = ( { allData } ) =>  {
 
-function handleClick(e) {
-    e.preventDefault();
-  }
+const classes = useStyles();
 
-    return (
+const handleClick = (e) => {
+   e.preventDefault();
+   return;
+}
+
+  return (
     <>
 
       <Head>
@@ -23,7 +31,6 @@ function handleClick(e) {
       </Head>
   
       <center>
-
       <Breadcrumbs aria-label="breadcrumb">
 
         <Link color="inherit" href="/" onClick={handleClick}>
@@ -41,23 +48,22 @@ function handleClick(e) {
         <CardContent>
           
           <Typography variant="h1" component="h2" gutterBottom>
-              <center>Launchpads Land</center>        
+              <center className={classes.root} >Launchpads Land</center>        
           </Typography>
 
           <Typography variant="h6" component="h2" gutterBottom>
-              <center>Click on a Launchpad below!</center>        
+              <center className={classes.root}>Click on a Launchpad below!</center>        
           </Typography>
 
         </CardContent>
 
       </Card>
 
-      <p></p>
+      <br></br>
 
       {allData.map((value) => (
       
         <Card>
-            
           <Link href={{pathname: `/Launchpads/${value.id}`}}>
                 <Typography variant="h5" component="h5" gutterBottom>
                 {value.full_name}
@@ -68,7 +74,6 @@ function handleClick(e) {
 
         ))
         }
-
         </center>
         
       </>

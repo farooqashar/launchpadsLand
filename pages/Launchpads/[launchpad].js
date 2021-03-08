@@ -17,41 +17,49 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import axios from "axios";
+import { makeStyles } from '@material-ui/core/styles';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+
+const useStyles = makeStyles({
+  root: {
+    color: "#0000FF",
+  },
+});
 
 const SpecificLaunchPad = () =>  {
 
+  const classes = useStyles();
+
   const [allData, setAllData] = useState([]);
   const [expanded, setExpanded] = useState(false);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(false);
   const [open, setOpen] = useState(false);
 
   const router = useRouter()
 
   const DataAxios = async () => {
     const { launchpad } = router.query
-    const orgURL = `https://api.spacexdata.com/v4/launchpads/${launchpad}`
-    console.log(orgURL)
-    const response = await axios.get(orgURL);
+    const response = await axios.get(`https://api.spacexdata.com/v4/launchpads/${launchpad}`);
     setAllData(response.data);
   };
 
-    useEffect(() => {
+   useEffect(() => {
       DataAxios();
     }, []);
 
-    function handleClick(e) {
-        e.preventDefault();
-      }
+    const handleClick = (e) => {
+      e.preventDefault();
+      return;
+   }
 
     const handleExpandClick = () => {
       setExpanded(!expanded);
     };
   
-    const handleFavorites = (user) => {
-      const newFavorites = [...favorites];
-      newFavorites.push(user);
-      setFavorites(newFavorites);
-      setOpen(true);
+    const handleFavorites = (favorites) => {
+      (favorites? setOpen(false) : setOpen(true))
+      setFavorites(!favorites);
+
     };
   
     const handleFavoritesClose = (reason) => {
@@ -81,7 +89,7 @@ const SpecificLaunchPad = () =>  {
         </Breadcrumbs>
 
         
-        <b><center><h1>Information</h1></center></b>        
+      <b><center><h1 className={classes.root}>Information</h1></center></b>        
       
       <Card >
 
@@ -103,8 +111,9 @@ const SpecificLaunchPad = () =>  {
 
         <CardActions disableSpacing>
 
-        <IconButton aria-label="Favorites" onClick = {() => handleFavorites(allData.name)}>
-          <FavoriteIcon />
+        <IconButton aria-label="Favorites" onClick = {() => handleFavorites(favorites)}>
+          {(favorites? <FavoriteIcon/> : <FavoriteBorderOutlinedIcon /> )}
+
         </IconButton>
 
         <Snackbar open={open} autoHideDuration={1500} onClose={handleFavoritesClose}>
