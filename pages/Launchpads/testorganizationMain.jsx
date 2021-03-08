@@ -7,9 +7,7 @@ import axios from "axios";
 import OrganizationSelected from './organizationSelected';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
-import styles from './app.module.css';
 
 
 export default function OrganizationMain() {
@@ -23,13 +21,10 @@ export default function OrganizationMain() {
   const [time,setTime] = useState();
   const [status,setStatus] = useState();
   const [id,setID] = useState();
-
-
   const [orgSelected, setOrgSelected] = useState(null);
 
   const orgAxios = async () => {
     const response = await axios.get(orgURL);
-    console.log(response.data);
     setAllData(response.data);
   };
 
@@ -38,14 +33,15 @@ export default function OrganizationMain() {
   }, [orgURL]);
 
   function onclick(value){
-      setDetails(value.details);
-      setName(value.name);
-      setLocality(value.locality);
-      setLongitude(value.longitude);
-      setTime(value.timezone);
-      setStatus(value.status);
-      setID(value.id);
-      setOrgSelected(value.full_name);
+      const { details, name, locality, longitude, timezone, status, id, full_name } = value
+      setDetails(details);
+      setName(name);
+      setLocality(locality);
+      setLongitude(longitude);
+      setTime(timezone);
+      setStatus(status);
+      setID(id);
+      setOrgSelected(full_name);
   }
 
     if (details.length != 0) {
@@ -69,27 +65,25 @@ export default function OrganizationMain() {
 
           <Card variant="outlined">
 
-          <CardActionArea>
             <CardContent>
-              <Typography className = {styles.cardLarge} variant="h1" component="h2" color="primary" gutterBottom>
+              <Typography variant="h1" component="h2" gutterBottom>
                   <center>Welcome to Launchpads Land</center>        
               </Typography>
 
-              <Typography className = {styles.cardMain} variant="h4" component="h2" color="primary" gutterBottom>
+              <Typography  variant="h4" component="h2" gutterBottom>
                   <center>This is a simple interface for finding some information about SpaceX Launchpads!</center>        
               </Typography>
 
-              <Typography className = {styles.cardLight} variant="h6" component="h2" color="primary" gutterBottom>
+              <Typography variant="h6" component="h2" gutterBottom>
                   <center>To get started, click on a Launchpad below!</center>        
               </Typography>
 
             </CardContent>
-          </CardActionArea>
 
           <CardActions style={{justifyContent: 'center'}}>
 
             <Link href="/">
-              <Button color = "primary">Back to Home</Button>
+              <Button>Back to Home</Button>
             </Link>
 
           </CardActions>
@@ -104,12 +98,13 @@ export default function OrganizationMain() {
             <Card 
             onClick = {() => onclick(value)}
             >
-              <Typography className = {styles.numbers} variant="h5" component="h5" color="primary" gutterBottom>
+              <Typography variant="h5" component="h5" gutterBottom>
               {value.full_name}
               </Typography>
  
             </Card>
         ))
+
         }
         </center>
 

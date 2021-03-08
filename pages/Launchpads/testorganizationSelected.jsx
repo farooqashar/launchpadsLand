@@ -4,19 +4,15 @@ import React, { useState, useEffect } from "react";
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import styles from './app.module.css';
 import Collapse from '@material-ui/core/Collapse';
-import CardMedia from '@material-ui/core/CardMedia';
 import Avatar from '@material-ui/core/Avatar';
 import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import LinkIcon from '@material-ui/icons/Link';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 
@@ -54,63 +50,51 @@ export default function OrganizationSelected(props) {
   
     return (
         <div>
+
             <Head>
                 <title>Selected LaunchPad Info!</title>
             </Head>
 
             <Card variant="outlined">
-              <CardActionArea>
-                <CardContent>
-                  <Typography className = {styles.cardLarge} variant="h3" component="h2" color="blue" gutterBottom>
+
+              <CardContent>
+                  <Typography variant="h3" component="h2" color="blue" gutterBottom>
                       <center>Information! Information! Information!</center>        
                   </Typography>
 
-                  <Typography className = {styles.cardMain} variant="h5" component="h2" color="blue" gutterBottom>
+                  <Typography variant="h5" component="h2" color="blue" gutterBottom>
                       <center>You will find info about <i>{props.orgSelected}</i> below!</center>        
                   </Typography>
-
+                  
               </CardContent>
-            </CardActionArea>
 
           <CardActions style={{justifyContent: 'center'}}>
 
             <Link href="/">
-              <Button color = "primary">Back to Home</Button>
+              <Button>Back to Home</Button>
             </Link>
 
           </CardActions>
+
           </Card>
+
 
             <Card >
 
               <CardHeader
-                className = {styles.cardLight}
-
                 avatar={
                   <Avatar aria-label="Name" >
                     LL
                   </Avatar>
                 }
-
-                action={
-                  <Link href="/">
-                  <IconButton aria-label="Name">
-                    <MoreVertIcon />
-                  </IconButton>
-                  </Link>
-                }
                 title= {name}
                 subheader = {props.orgSelected}
               />
 
-              <CardMedia
-              title = {name}
-              />
-
               <CardContent>
-              <Typography className = {styles.cardLight} variant="body2" color="textSecondary" component="p">
-                {details}
-              </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {details}
+                </Typography>
               </CardContent>
 
               <CardActions disableSpacing>
@@ -126,8 +110,8 @@ export default function OrganizationSelected(props) {
               </Snackbar>
 
               <Link href="https://www.spacex.com/">
-                <IconButton aria-label="Share">
-                  <ShareIcon />
+                <IconButton aria-label="Link">
+                  <LinkIcon />
                 </IconButton>
               </Link>
 
@@ -169,6 +153,7 @@ export default function OrganizationSelected(props) {
               </Collapse>
         
         </Card>
+        
         </div>
       )
   }
