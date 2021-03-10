@@ -16,6 +16,8 @@ const useStyles = makeStyles({
 
 const AllLaunchpads = ( { allData } ) =>  {
 
+// const newTest = allData.map((value) => ({ params: { value.id } }))
+
 const classes = useStyles();
 
 const handleClick = (e) => {
@@ -60,11 +62,11 @@ const handleClick = (e) => {
       </Card>
 
       <br></br>
-
+      
       {allData.map((value) => (
       
         <Card>
-          <Link href={{pathname: `/Launchpads/${value.id}`}}>
+          <Link href={{ pathname: `/Launchpads/${value.id}`}}>
                 <Typography variant="h5" component="h5" gutterBottom>
                 {value.full_name}
                 </Typography>
@@ -74,6 +76,7 @@ const handleClick = (e) => {
 
         ))
         }
+
         </center>
         
       </>
@@ -84,5 +87,7 @@ const handleClick = (e) => {
   const response_data = await axios.get("https://api.spacexdata.com/v4/launchpads");
   return { props: { allData: response_data.data } };
 };
-  
+
+
+
 export default AllLaunchpads;

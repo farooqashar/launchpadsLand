@@ -26,26 +26,11 @@ const useStyles = makeStyles({
   },
 });
 
-const SpecificLaunchPad = () =>  {
-
+const SpecificLaunchPad = ( {allData} ) =>  {
   const classes = useStyles();
-
-  const [allData, setAllData] = useState([]);
   const [expanded, setExpanded] = useState(false);
   const [favorites, setFavorites] = useState(false);
   const [open, setOpen] = useState(false);
-
-  const router = useRouter()
-
-  const DataAxios = async () => {
-    const { launchpad } = router.query
-    const response = await axios.get(`https://api.spacexdata.com/v4/launchpads/${launchpad}`);
-    setAllData(response.data);
-  };
-
-   useEffect(() => {
-      DataAxios();
-    }, []);
 
     const handleClick = (e) => {
       e.preventDefault();
@@ -90,7 +75,7 @@ const SpecificLaunchPad = () =>  {
 
         
       <b><center><h1 className={classes.root}>Information</h1></center></b>        
-      
+
       <Card >
 
         <CardHeader
@@ -170,5 +155,29 @@ const SpecificLaunchPad = () =>  {
         </>
       )
     };
+
+
+export const getStaticProps = async (context) => {
+
+  const response_data = await axios.get(`https://api.spacexdata.com/v4/launchpads/${context.params.launchpad}`);
+
+  return { props: { allData: response_data.data } };
+
+};
+
+export async function getStaticPaths() {
+
+  return {
+    paths:  [ 
+      {params: { launchpad: "5e9e4501f5090910d4566f83"} },
+      {params: { launchpad: "5e9e4501f509094ba4566f84"} },
+      {params: { launchpad: "5e9e4502f5090927f8566f85"} },
+      {params: { launchpad: "5e9e4502f5090995de566f86"} },
+      {params: { launchpad: "5e9e4502f509092b78566f87"} },
+      {params: { launchpad: "5e9e4502f509094188566f88"} }],
+    fallback: false,
+  }
+}
+
 
     export default SpecificLaunchPad;
