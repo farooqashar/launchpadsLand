@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -156,7 +155,7 @@ const SpecificLaunchPad = ( {allData} ) =>  {
       )
     };
 
-
+    
 export const getStaticProps = async (context) => {
 
   const response_data = await axios.get(`https://api.spacexdata.com/v4/launchpads/${context.params.launchpad}`);
@@ -165,19 +164,21 @@ export const getStaticProps = async (context) => {
 
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () =>  {
+
+  const response_data = await axios.get(`https://api.spacexdata.com/v4/Launchpads/`);
+
+  const paths = [];
+
+  response_data.data.forEach( (element) => {
+    paths.push( { params: { launchpad: element.id}});
+  })
 
   return {
-    paths:  [ 
-      {params: { launchpad: "5e9e4501f5090910d4566f83"} },
-      {params: { launchpad: "5e9e4501f509094ba4566f84"} },
-      {params: { launchpad: "5e9e4502f5090927f8566f85"} },
-      {params: { launchpad: "5e9e4502f5090995de566f86"} },
-      {params: { launchpad: "5e9e4502f509092b78566f87"} },
-      {params: { launchpad: "5e9e4502f509094188566f88"} }],
+    paths:  paths,
     fallback: false,
   }
 }
 
 
-    export default SpecificLaunchPad;
+  export default SpecificLaunchPad;
